@@ -54,6 +54,7 @@ int main(int argc, const char *argv[])
         // load image from file and convert to grayscale
         cv::Mat img, imgGray;
         img = cv::imread(imgFullFilename);
+        cv::resize(img, img, cv::Size(img.cols * 0.5,img.rows * 0.5));
         cv::cvtColor(img, imgGray, cv::COLOR_BGR2GRAY);
 
         //// STUDENT ASSIGNMENT
@@ -101,7 +102,7 @@ int main(int argc, const char *argv[])
         //// EOF STUDENT ASSIGNMENT
 
         // optional : limit number of keypoints (helpful for debugging and learning)
-        bool bLimitKpts = false;
+        bool bLimitKpts = true;
         if (bLimitKpts)
         {
             int maxKeypoints = 50;
